@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-11-07T22:49:29+00:00</updated><id>/feed.xml</id><title type="html">Ping Hsin blog</title><entry><title type="html">Cache</title><link href="/leetcode/2024/10/21/cache.html" rel="alternate" type="text/html" title="Cache" /><published>2024-10-21T06:25:14+00:00</published><updated>2024-10-21T06:25:14+00:00</updated><id>/leetcode/2024/10/21/cache</id><content type="html" xml:base="/leetcode/2024/10/21/cache.html"><![CDATA[<h1 id="緩存模式思維導圖總結與實例">緩存模式思維導圖總結與實例</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-11-07T22:50:57+00:00</updated><id>/feed.xml</id><title type="html">Ping Hsin blog</title><entry><title type="html">Cache</title><link href="/leetcode/2024/10/21/cache.html" rel="alternate" type="text/html" title="Cache" /><published>2024-10-21T06:25:14+00:00</published><updated>2024-10-21T06:25:14+00:00</updated><id>/leetcode/2024/10/21/cache</id><content type="html" xml:base="/leetcode/2024/10/21/cache.html"><![CDATA[<p><img src="/images/緩存模式思維導圖.png" alt="緩存模式思維導圖" style="width: 100%; height: auto; max-width: none; display: block; margin: auto;" /></p>
+
+<h1 id="緩存模式思維導圖總結與實例">緩存模式思維導圖總結與實例</h1>
 
 <h2 id="cache-aside旁路緩存">Cache-Aside（旁路緩存）</h2>
 <ul>
@@ -86,9 +88,7 @@
       <li>Write-Behind</li>
     </ul>
   </li>
-</ul>
-
-<p><img src="/images/緩存模式思維導圖.png" alt="緩存模式思維導圖" style="width: 100%; height: auto; max-width: none; display: block; margin: auto;" /></p>]]></content><author><name></name></author><category term="leetcode" /><summary type="html"><![CDATA[緩存模式思維導圖總結與實例]]></summary></entry><entry><title type="html">Coding Question: Number of Islands</title><link href="/leetcode/2024/10/20/leetcode-number-of-islands.html" rel="alternate" type="text/html" title="Coding Question: Number of Islands" /><published>2024-10-20T06:25:14+00:00</published><updated>2024-10-20T06:25:14+00:00</updated><id>/leetcode/2024/10/20/leetcode-number-of-islands</id><content type="html" xml:base="/leetcode/2024/10/20/leetcode-number-of-islands.html"><![CDATA[<h1 id="number-of-islands-problem-using-dfs-in-python">Number of Islands Problem using DFS in Python</h1>
+</ul>]]></content><author><name></name></author><category term="leetcode" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Coding Question: Number of Islands</title><link href="/leetcode/2024/10/20/leetcode-number-of-islands.html" rel="alternate" type="text/html" title="Coding Question: Number of Islands" /><published>2024-10-20T06:25:14+00:00</published><updated>2024-10-20T06:25:14+00:00</updated><id>/leetcode/2024/10/20/leetcode-number-of-islands</id><content type="html" xml:base="/leetcode/2024/10/20/leetcode-number-of-islands.html"><![CDATA[<h1 id="number-of-islands-problem-using-dfs-in-python">Number of Islands Problem using DFS in Python</h1>
 
 <p>The <strong>Number of Islands</strong> problem is a common interview question where you’re given a 2D grid of ‘1’s (land) and ‘0’s (water). The goal is to count how many islands exist. An island is defined as a group of adjacent ‘1’s connected horizontally or vertically.</p>
 
