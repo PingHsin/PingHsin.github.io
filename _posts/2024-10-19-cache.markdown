@@ -2,7 +2,7 @@
 layout: post
 title:  "Cache"
 date:   2024-10-19 23:25:14 -0700
-categories: leetcode
+categories: sd
 ---
 
 # 緩存模式思維導圖總結與實例
