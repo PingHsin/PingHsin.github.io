@@ -55,4 +55,4 @@ categories: leetcode
   - Write-Through
   - Write-Behind
 
-<img src="/images/緩存模式思維導圖.png" alt="緩存模式思維導圖" style="width: 100%; height: auto;" />
+<img src="/images/緩存模式思維導圖.png" alt="緩存模式思維導圖" style="width: 100%; height: auto; max-width: none; display: block; margin: auto;" />
