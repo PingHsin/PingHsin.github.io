@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Cache"
-date:   2024-11-07 23:25:14 -0700
-categories: leetcode
+date:   2024-11-7 23:25:14 -0700
+categories: cache
 ---
 
 # 緩存模式思維導圖總結與實例
@@ -55,4 +55,5 @@ categories: leetcode
   - Write-Through
   - Write-Behind
 
-![緩存模式思維導圖](../images/緩存模式思維導圖.png)
+![緩存模式思維導圖](/images/緩存模式思維導圖.png)
+
