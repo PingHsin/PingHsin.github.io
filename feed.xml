@@ -1,4 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-11-07T22:33:44+00:00</updated><id>/feed.xml</id><title type="html">Ping Hsin blog</title><entry><title type="html">Coding Question: Number of Islands</title><link href="/leetcode/2024/10/20/leetcode-number-of-islands.html" rel="alternate" type="text/html" title="Coding Question: Number of Islands" /><published>2024-10-20T06:25:14+00:00</published><updated>2024-10-20T06:25:14+00:00</updated><id>/leetcode/2024/10/20/leetcode-number-of-islands</id><content type="html" xml:base="/leetcode/2024/10/20/leetcode-number-of-islands.html"><![CDATA[<h1 id="number-of-islands-problem-using-dfs-in-python">Number of Islands Problem using DFS in Python</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-11-07T22:36:10+00:00</updated><id>/feed.xml</id><title type="html">Ping Hsin blog</title><entry><title type="html">Coding Question: Number of Islands</title><link href="/leetcode/2024/10/21/SD-Cache.html" rel="alternate" type="text/html" title="Coding Question: Number of Islands" /><published>2024-10-21T06:25:14+00:00</published><updated>2024-10-21T06:25:14+00:00</updated><id>/leetcode/2024/10/21/SD-Cache</id><content type="html" xml:base="/leetcode/2024/10/21/SD-Cache.html"><![CDATA[<h1 id="緩存模式思維導圖總結與實例">緩存模式思維導圖總結與實例</h1>
+
+<h2 id="cache-aside旁路緩存">Cache-Aside（旁路緩存）</h2>
+<ul>
+  <li><strong>概述</strong>：應用程序先從緩存讀取數據，如無數據則從數據庫獲取並加載到緩存中。</li>
+  <li><strong>實例</strong>：用於商品目錄系統，當用戶首次查看商品詳情時，數據會從數據庫加載並緩存，隨後其他用戶的訪問可直接從緩存中獲取。</li>
+  <li><strong>優點</strong>：
+    <ul>
+      <li>減少數據庫的讀取負載。</li>
+      <li>控制數據更新，根據需要進行緩存更新。</li>
+    </ul>
+  </li>
+  <li><strong>缺點</strong>：
+    <ul>
+      <li>如果數據頻繁變動，緩存中的數據可能會過時。</li>
+      <li>增加了應用層處理邏輯。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="read-through讀穿緩存">Read-Through（讀穿緩存）</h2>
+<ul>
+  <li><strong>概述</strong>：應用程序直接從緩存請求數據，若無數據則由緩存自動從數據庫加載並緩存。</li>
+  <li><strong>實例</strong>：常見於用戶資料系統，如當用戶登錄查詢個人資料時，數據可自動加載至緩存以減少對數據庫的讀取。</li>
+  <li><strong>優點</strong>：
+    <ul>
+      <li>簡化應用邏輯，讀取邏輯由緩存處理。</li>
+      <li>避免多次從數據庫拉取相同數據，提升效率。</li>
+    </ul>
+  </li>
+  <li><strong>缺點</strong>：
+    <ul>
+      <li>缺乏應用層的控制權，緩存更新策略固定。</li>
+      <li>適合於讀取頻繁但變更不頻繁的數據，否則緩存數據可能不一致。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="write-through寫穿緩存">Write-Through（寫穿緩存）</h2>
+<ul>
+  <li><strong>概述</strong>：數據寫入緩存的同時同步寫入數據庫，確保兩者數據一致。</li>
+  <li><strong>實例</strong>：用於金融交易系統，當每次有新交易時會即時更新緩存和數據庫，以確保交易記錄的即時性。</li>
+  <li><strong>優點</strong>：
+    <ul>
+      <li>保證數據的即時一致性，適合需要高一致性的系統。</li>
+      <li>減少應用層複雜度，寫入過程由緩存和數據庫共同管理。</li>
+    </ul>
+  </li>
+  <li><strong>缺點</strong>：
+    <ul>
+      <li>會增加寫操作的延遲，因為每次都需要寫入數據庫。</li>
+      <li>如果寫入頻繁，可能會影響系統性能。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="write-behind寫回緩存">Write-Behind（寫回緩存）</h2>
+<ul>
+  <li><strong>概述</strong>：數據寫入緩存，但會延遲或批量地寫入數據庫，主要為了提升性能。</li>
+  <li><strong>實例</strong>：社交媒體的點贊或評論系統，點贊數據可以先存入緩存，並定期批量寫入數據庫。</li>
+  <li><strong>優點</strong>：
+    <ul>
+      <li>提高寫操作性能，適合高頻率寫入的場景。</li>
+      <li>減少數據庫壓力，因為批量處理可以減少數據庫的訪問次數。</li>
+    </ul>
+  </li>
+  <li><strong>缺點</strong>：
+    <ul>
+      <li>存在數據一致性風險，如在緩存寫回數據庫前系統崩潰，會導致數據丟失。</li>
+      <li>對於需即時數據同步的場景不適用。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="模式總覽">模式總覽</h2>
+<ul>
+  <li><strong>讀取緩存模式</strong>：
+    <ul>
+      <li>Cache-Aside</li>
+      <li>Read-Through</li>
+    </ul>
+  </li>
+  <li><strong>寫入緩存模式</strong>：
+    <ul>
+      <li>Write-Through</li>
+      <li>Write-Behind</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="../images/緩存模式思維導圖.png" alt="緩存模式思維導圖" /></p>]]></content><author><name></name></author><category term="leetcode" /><summary type="html"><![CDATA[緩存模式思維導圖總結與實例]]></summary></entry><entry><title type="html">Coding Question: Number of Islands</title><link href="/leetcode/2024/10/20/leetcode-number-of-islands.html" rel="alternate" type="text/html" title="Coding Question: Number of Islands" /><published>2024-10-20T06:25:14+00:00</published><updated>2024-10-20T06:25:14+00:00</updated><id>/leetcode/2024/10/20/leetcode-number-of-islands</id><content type="html" xml:base="/leetcode/2024/10/20/leetcode-number-of-islands.html"><![CDATA[<h1 id="number-of-islands-problem-using-dfs-in-python">Number of Islands Problem using DFS in Python</h1>
 
 <p>The <strong>Number of Islands</strong> problem is a common interview question where you’re given a 2D grid of ‘1’s (land) and ‘0’s (water). The goal is to count how many islands exist. An island is defined as a group of adjacent ‘1’s connected horizontally or vertically.</p>
 
