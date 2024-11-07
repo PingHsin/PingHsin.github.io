@@ -2,7 +2,7 @@
 layout: post
 title:  "Cache"
 date:   2024-10-20 23:25:14 -0700
-categories: leetcode
+categories: sd
 ---
 
 <img src="/images/緩存模式思維導圖.png" alt="緩存模式思維導圖" style="width: 100%; height: auto; max-width: none; display: block; margin: auto;" />
