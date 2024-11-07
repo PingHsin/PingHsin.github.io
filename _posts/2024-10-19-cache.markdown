@@ -55,5 +55,5 @@ categories: sd
   - Write-Through
   - Write-Behind
 
-<img src="/images/緩存模式思維導圖.png" alt="緩存模式思維導圖" style="width: 100%; height: auto;" />
+![緩存模式思維導圖](/images/緩存模式思維導圖.png){ width=100% }
 
