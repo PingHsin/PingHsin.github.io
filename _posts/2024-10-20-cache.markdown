@@ -5,6 +5,9 @@ date:   2024-10-20 23:25:14 -0700
 categories: leetcode
 ---
 
+<img src="/images/緩存模式思維導圖.png" alt="緩存模式思維導圖" style="width: 100%; height: auto; max-width: none; display: block; margin: auto;" />
+
+
 # 緩存模式思維導圖總結與實例
 
 ## Cache-Aside（旁路緩存）
@@ -55,4 +58,3 @@ categories: leetcode
   - Write-Through
   - Write-Behind
 
-<img src="/images/緩存模式思維導圖.png" alt="緩存模式思維導圖" style="width: 100%; height: auto; max-width: none; display: block; margin: auto;" />
