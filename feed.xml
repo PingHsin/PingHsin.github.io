@@ -1,46 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-11-07T22:40:59+00:00</updated><id>/feed.xml</id><title type="html">Ping Hsin blog</title><entry><title type="html">Coding Question: Number of Islands</title><link href="/leetcode/2024/10/20/leetcode-number-of-islands.html" rel="alternate" type="text/html" title="Coding Question: Number of Islands" /><published>2024-10-20T06:25:14+00:00</published><updated>2024-10-20T06:25:14+00:00</updated><id>/leetcode/2024/10/20/leetcode-number-of-islands</id><content type="html" xml:base="/leetcode/2024/10/20/leetcode-number-of-islands.html"><![CDATA[<h1 id="number-of-islands-problem-using-dfs-in-python">Number of Islands Problem using DFS in Python</h1>
-
-<p>The <strong>Number of Islands</strong> problem is a common interview question where you’re given a 2D grid of ‘1’s (land) and ‘0’s (water). The goal is to count how many islands exist. An island is defined as a group of adjacent ‘1’s connected horizontally or vertically.</p>
-
-<h2 id="approachóó">ApproachÓÓ</h2>
-<p>The approach uses Depth-First Search (DFS). Starting from a ‘1’, we recursively visit all connected ‘1’s, marking them as visited (by changing them to ‘0’). Each time we initiate a DFS, it indicates the discovery of a new island.</p>
-
-<h2 id="python-code-using-dfs">Python Code using DFS</h2>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">numIslands</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">grid</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-
-    <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="nf">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="nf">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">or</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="sh">'</span><span class="s">0</span><span class="sh">'</span><span class="p">:</span>
-            <span class="k">return</span>
-        <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="sh">'</span><span class="s">0</span><span class="sh">'</span>  <span class="c1"># Mark the current cell as visited
-</span>        <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>  <span class="c1"># Visit the neighbor down
-</span>        <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>  <span class="c1"># Visit the neighbor up
-</span>        <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Visit the neighbor right
-</span>        <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Visit the neighbor left
-</span>
-    <span class="n">islands</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
-            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="sh">'</span><span class="s">1</span><span class="sh">'</span><span class="p">:</span>  <span class="c1"># Start a DFS if we find an unvisited land
-</span>                <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
-                <span class="n">islands</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># One DFS call represents one island
-</span>    <span class="k">return</span> <span class="n">islands</span>
-
-<span class="c1"># Example usage
-</span><span class="n">grid</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="p">[</span><span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">],</span>
-  <span class="p">[</span><span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">],</span>
-  <span class="p">[</span><span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">],</span>
-  <span class="p">[</span><span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">]</span>
-<span class="p">]</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">numIslands</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>  <span class="c1"># Output: 3
-</span></code></pre></div></div>
-<h2 id="explanation">Explanation</h2>
-<h3 id="dfs-traversal">DFS Traversal:</h3>
-<p>When we encounter a ‘1’, we trigger a DFS to explore all connected lands (horizontally and vertically) and mark them as ‘0’ (visited).</p>
-<h3 id="counting-islands">Counting Islands:</h3>
-<p>Each time we initiate a DFS from a ‘1’, we count that as one island.</p>]]></content><author><name></name></author><category term="leetcode" /><summary type="html"><![CDATA[Number of Islands Problem using DFS in Python]]></summary></entry><entry><title type="html">Cache</title><link href="/leetcode/2024/10/20/cache.html" rel="alternate" type="text/html" title="Cache" /><published>2024-10-20T06:25:14+00:00</published><updated>2024-10-20T06:25:14+00:00</updated><id>/leetcode/2024/10/20/cache</id><content type="html" xml:base="/leetcode/2024/10/20/cache.html"><![CDATA[<h1 id="緩存模式思維導圖總結與實例">緩存模式思維導圖總結與實例</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-11-07T22:42:54+00:00</updated><id>/feed.xml</id><title type="html">Ping Hsin blog</title><entry><title type="html">Cache</title><link href="/sd/2024/10/20/cache.html" rel="alternate" type="text/html" title="Cache" /><published>2024-10-20T06:25:14+00:00</published><updated>2024-10-20T06:25:14+00:00</updated><id>/sd/2024/10/20/cache</id><content type="html" xml:base="/sd/2024/10/20/cache.html"><![CDATA[<h1 id="緩存模式思維導圖總結與實例">緩存模式思維導圖總結與實例</h1>
 
 <h2 id="cache-aside旁路緩存">Cache-Aside（旁路緩存）</h2>
 <ul>
@@ -130,4 +88,46 @@
   </li>
 </ul>
 
-<p><img src="/images/緩存模式思維導圖.png" alt="緩存模式思維導圖" /></p>]]></content><author><name></name></author><category term="leetcode" /><summary type="html"><![CDATA[緩存模式思維導圖總結與實例]]></summary></entry></feed>
+<p><img src="/images/緩存模式思維導圖.png" alt="緩存模式思維導圖" /></p>]]></content><author><name></name></author><category term="sd" /><summary type="html"><![CDATA[緩存模式思維導圖總結與實例]]></summary></entry><entry><title type="html">Coding Question: Number of Islands</title><link href="/leetcode/2024/10/20/leetcode-number-of-islands.html" rel="alternate" type="text/html" title="Coding Question: Number of Islands" /><published>2024-10-20T06:25:14+00:00</published><updated>2024-10-20T06:25:14+00:00</updated><id>/leetcode/2024/10/20/leetcode-number-of-islands</id><content type="html" xml:base="/leetcode/2024/10/20/leetcode-number-of-islands.html"><![CDATA[<h1 id="number-of-islands-problem-using-dfs-in-python">Number of Islands Problem using DFS in Python</h1>
+
+<p>The <strong>Number of Islands</strong> problem is a common interview question where you’re given a 2D grid of ‘1’s (land) and ‘0’s (water). The goal is to count how many islands exist. An island is defined as a group of adjacent ‘1’s connected horizontally or vertically.</p>
+
+<h2 id="approachóó">ApproachÓÓ</h2>
+<p>The approach uses Depth-First Search (DFS). Starting from a ‘1’, we recursively visit all connected ‘1’s, marking them as visited (by changing them to ‘0’). Each time we initiate a DFS, it indicates the discovery of a new island.</p>
+
+<h2 id="python-code-using-dfs">Python Code using DFS</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">numIslands</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">grid</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="nf">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="nf">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">or</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="sh">'</span><span class="s">0</span><span class="sh">'</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="sh">'</span><span class="s">0</span><span class="sh">'</span>  <span class="c1"># Mark the current cell as visited
+</span>        <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>  <span class="c1"># Visit the neighbor down
+</span>        <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>  <span class="c1"># Visit the neighbor up
+</span>        <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Visit the neighbor right
+</span>        <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Visit the neighbor left
+</span>
+    <span class="n">islands</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="sh">'</span><span class="s">1</span><span class="sh">'</span><span class="p">:</span>  <span class="c1"># Start a DFS if we find an unvisited land
+</span>                <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                <span class="n">islands</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># One DFS call represents one island
+</span>    <span class="k">return</span> <span class="n">islands</span>
+
+<span class="c1"># Example usage
+</span><span class="n">grid</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">],</span>
+  <span class="p">[</span><span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">],</span>
+  <span class="p">[</span><span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">],</span>
+  <span class="p">[</span><span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">0</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">numIslands</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>  <span class="c1"># Output: 3
+</span></code></pre></div></div>
+<h2 id="explanation">Explanation</h2>
+<h3 id="dfs-traversal">DFS Traversal:</h3>
+<p>When we encounter a ‘1’, we trigger a DFS to explore all connected lands (horizontally and vertically) and mark them as ‘0’ (visited).</p>
+<h3 id="counting-islands">Counting Islands:</h3>
+<p>Each time we initiate a DFS from a ‘1’, we count that as one island.</p>]]></content><author><name></name></author><category term="leetcode" /><summary type="html"><![CDATA[Number of Islands Problem using DFS in Python]]></summary></entry></feed>
