@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "SD:Cache"
-date:   2024-11-07 23:25:14 -0700
+date:   2024-11-7 23:25:14 -0700
 categories: cache
 ---
 
