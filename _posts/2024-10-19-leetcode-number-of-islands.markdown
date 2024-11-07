@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Leetcode: Number of Islands"
+title:  "Coding Question: Number of Islands"
 date:   2024-10-19 23:25:14 -0700
 categories: leetcode
 ---
@@ -9,7 +9,7 @@ categories: leetcode
 
 The **Number of Islands** problem is a common interview question where you're given a 2D grid of '1's (land) and '0's (water). The goal is to count how many islands exist. An island is defined as a group of adjacent '1's connected horizontally or vertically.
 
-## Approach
+## ApproachÓÓ
 The approach uses Depth-First Search (DFS). Starting from a '1', we recursively visit all connected '1's, marking them as visited (by changing them to '0'). Each time we initiate a DFS, it indicates the discovery of a new island.
 
 ## Python Code using DFS
