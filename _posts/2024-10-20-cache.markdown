@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Cache"
-date: 2024-10-20 23:25:14 -0700
-categories: sd
+title:  "Cache"
+date:   2024-10-19 23:25:14 -0700
+categories: leetcode
 ---
 
 # 緩存模式思維導圖總結與實例
